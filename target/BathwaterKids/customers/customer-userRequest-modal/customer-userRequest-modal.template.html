@@ -1,0 +1,118 @@
+
+
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileBg">
+         <h2>User Request</h2>
+         <div class="inner-adjust">
+            <div style="height:250px;overflow:auto;">
+               <table class="table table-condensed text-center">
+                  <tr>
+                     <th></th>
+                     <th style="font-size: 13px;" class="col-md-3">UserRequestID</th>
+                     <th style="font-size: 13px;" class="col-md-1">Date</th>
+                     <th style="font-size: 13px;" class="col-md-2">Time</th>
+                     <th style="font-size: 13px;" class="col-md-1" ng-click="orderByField='type'; reverseSort = !reverseSort">Type<span ng-show="!reverseSort">&#8657;</span><span ng-show="reverseSort">&#8659;</span></span></th>
+                     <th style="font-size: 13px;" class="col-md-1" ng-click="orderByField='status'; reverseSort = !reverseSort">Status<span ng-show="!reverseSort">&#8657;</span><span ng-show="reverseSort">&#8659;</span></span></th>
+                     <th style="font-size: 13px;" class="col-md-2">Driver ID</th>
+                     <th style="font-size: 13px;" class="col-md-1">Driver Name</th>
+                     <th style="font-size: 13px;" class="col-md-3">Number of Items to be Picked</th>
+                  </tr>
+                  <tr ng-if="$ctrl.userReq"  ng-repeat="req in $ctrl.userReq | orderBy:orderByField:reverseSort">
+                     <td><input type="checkbox" ng-model ="req.isChecked" ng-click="$ctrl.getItems(req)"></td>
+                     <td>{{req.userRequestID}}</td>
+                     <td>{{req.date}}</td>
+                     <td>{{req.time}}</td>
+                     <td>{{req.type}}</td>
+                     <td>{{req.status}}</td>
+                     <td>{{req.driver.driverID}}</td>
+                     <td>{{req.driver.firstName}}&nbsp;{{req.driver.lastName}}</td>
+                     <td>{{req.numberOfItemsToBePicked}}</td>
+                  </tr>
+                  <tr ng-show="$ctrl.UserReqmessage">
+                  <td></td>
+                  <td class="col-md-3"></td>
+                  <td class="col-md-2"></td>
+                  <td style="font-size: 15px;" class="col-md-4"><b>Data Does Not Exist</b></td>
+                  <td class="col-md-1"></td>
+                  <td class="col-md-1"></td>
+                  <td class="col-md-1"></td>
+                  <td class="col-md-1"></td>
+                  <td class="col-md-1"></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="row">
+                  <h3>Items Details</h3>
+                  <div style="height:250px;overflow:auto;">
+                     <table class="table table-condensed text-center">
+                        <tr>
+                           <th class="col-md-1">Images</th>
+                           <th style="font-size: 13px;" class="col-md-3">UserRequestID</th>
+                           <th style="font-size: 13px;" class="col-md-2">Stored ItemID</th>
+                           <th style="font-size: 13px;" class="col-md-1">Item Name</th>
+                           <th style="font-size: 13px;" class="col-md-1">Item Code</th>
+                           <th style="font-size: 13px;" class="col-md-1">Brand Name</th>
+                           <th style="font-size: 13px;" class="col-md-2">Eventual Damage</th>
+                           <th style="font-size: 13px;" class="col-md-1">Condition</th>
+                           <th style="font-size: 13px;" class="col-md-1">Sub Items</th>
+                        </tr>
+                        <tr ng-repeat="item in $ctrl.itemsArray" ng-click="$ctrl.displayRow($index)" ng-class="{'highlight': item.userRequestID == $ctrl.selectedRow || $index == $ctrl.displayRowValue}">
+                           <td  class="text-center">
+                              <!-- <a ng-click="$ctrl.openLightboxModal(item.imagesBase64)" class="btn btn-sm btn-success">
+                                  View Images
+                                </a> -->
+                                <a href="" ng-click="$ctrl.openLightboxModal(item.imagesBase64)">
+                                    <img ng-src="{{item.imagesBase64[0]}}" class="img-thumbnail">
+                                 </a>
+                                 
+
+                           </td>
+                           <td class="col-md-3">{{item.userRequestID}}</td>   
+                           <td class="col-md-2">{{item.storedItemID}}</td>
+                           <td class="col-md-1" >{{item.itemName}}</td>
+                           <td class="col-md-1">{{item.itemCodes[0]}}</td>
+                           <td class="col-md-1" >{{item.brandName}}</td>
+                           <td class="col-md-2" >{{item.eventualDamages}}</td>
+                           <td class="col-md-1" >{{item.condition}}</td>
+                           <td><button type="button" ng-if="item.subItems" ng-click="$ctrl.subItems(item)" class="btn btn-sm btn-primary">View</button></td>
+                        </tr>
+                        <!-- <tr ng-show="$ctrl.noUserReqMessage">
+                           <td class="col-md-3"></td>
+                           <td class="col-md-2"></td>
+                           <td style="font-size: 15px;" class="col-md-4"><b>No User Request Selected</b></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-2"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+
+                        </tr> -->
+                        <tr ng-show="$ctrl.noItemMessage">
+                           <td class="col-md-3"></td>
+                           <td class="col-md-2"></td>
+                           <td style="font-size: 15px;" class="col-md-4"><b>No Items to Display</b></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-2"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+                           <td class="col-md-1"></td>
+
+                        </tr>
+                     </table>
+                  </div>
+            </div>
+            <br><br>
+            <div style="text-align:center">
+               <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+            </div>
+         </div>
+         </form>
+      </div>
+   </div>
+</div>
+</div>
+<!-- \ profileComponent end / -->

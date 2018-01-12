@@ -1,0 +1,115 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+    <div class="container">
+        <div class="profileBg">
+            <h2>Outgoing Item Request</h2>
+            <div class="inner-adjust">
+                <div style="height:250px;overflow:auto;">
+                    <table class="table table-condensed text-center">
+                        <tr>
+                            <th class="col-md-1"></th>
+                            <th style="font-size: 13px;" class="col-md-1">Signature</th>
+                            <th style="font-size: 13px;" class="col-md-2">UserRequestID</th>
+                            <th style="font-size: 13px;" class="col-md-1">Status</th>
+                            <th style="font-size: 13px;" class="col-md-1">Date</th>
+                            <th style="font-size: 13px;" class="col-md-1">Time</th>
+                            <th style="font-size: 13px;" class="col-md-3">Number of Items to be Picked</th>
+                            <th style="font-size: 13px;" class="col-md-1">User Detail</th>
+                        </tr>
+                        <tr ng-if="$ctrl.dropItemArray" ng-repeat="req in $ctrl.dropItemArray">
+                            <td>
+                                <input type="checkbox" ng-model="req.isChecked" ng-click="$ctrl.getRequestedItems(req)">
+                            </td>
+                            <td>
+                                <a href="" ng-click="$ctrl.openLightboxModal(req.signatureURL)">
+                                    <img ng-src="{{req.signatureURL[0]}}" class="img-thumbnail">
+                                </a>
+                            </td>
+                            <td>{{req.userRequestID}}</td>
+                            <td>{{req.status}}</td>
+                            <td>{{req.date}}</td>
+                            <td>{{req.time}}</td>
+                            <td>{{req.numberOfItemsToBePicked}}</td>
+                            <td>
+                                <button type="button" ng-click="$ctrl.viewUserDetail(req)" class="btn btn-sm btn-primary">View</button>
+                            </td>
+                        </tr>
+                        <!-- <tr ng-show="$ctrl.outgoingMessage">
+                            <td></td>
+                            <td class="col-md-3"></td>
+                            <td class="col-md-2"></td>
+                            <td style="font-size: 15px;" class="col-md-4"><b>Data Does Not Exist</b></td>
+                            <td class="col-md-1"></td>
+                            <td class="col-md-1"></td>
+                            <td class="col-md-1"></td>
+                            <td class="col-md-1"></td>
+                            <td class="col-md-1"></td>
+                        </tr> -->
+                        
+                    </table>
+                </div>
+                <div class="row">
+                    <h3>Items Details</h3>
+                    <div style="height:250px;overflow:auto;">
+                        <table class="table table-condensed text-center">
+                            <tr>
+                                <th class="col-md-1">Images</th>
+                                <th style="font-size: 13px;" class="col-md-3">UserRequestID</th>
+                                <th style="font-size: 13px;" class="col-md-2">Stored ItemID</th>
+                                <th style="font-size: 13px;" class="col-md-1">Item Name</th>
+                                <th style="font-size: 13px;" class="col-md-1">Item Code</th>
+                                <th style="font-size: 13px;" class="col-md-1">Location</th>
+                                <th style="font-size: 13px;" class="col-md-1">Brand Name</th>
+                                <th style="font-size: 13px;" class="col-md-2">Eventual Damage</th>
+                                <th style="font-size: 13px;" class="col-md-1">Condition</th>
+                                <th style="font-size: 13px;" class="col-md-1">Sub Items</th>
+                                <th style="font-size: 13px;" class="col-md-1">Action</th>
+                            </tr>
+                            <tr ng-repeat="item in $ctrl.itemsArray" ng-click="$ctrl.displayRow($index)" ng-class="{'highlight': item.userRequestID == $ctrl.selectedRow || $index == $ctrl.displayRowValue}">
+                                <td class="text-center">
+                                    <a href="" ng-click="$ctrl.openLightboxModal(item.imagesBase64)">
+                                        <img ng-src="{{item.imagesBase64[0]}}" class="img-thumbnail">
+                                    </a>
+                                </td>
+                                <td class="col-md-3">{{item.userRequestID}}</td>
+                                <td class="col-md-2">{{item.storedItemID}}</td>
+                                <td class="col-md-1">{{item.itemName}}</td>
+                                <td class="col-md-1">{{item.itemCodes[0]}}</td>
+                                <td class="col-md-1">{{item.location}}</td>
+                                <td class="col-md-1">{{item.brandName}}</td>
+                                <td class="col-md-2">{{item.eventualDamages}}</td>
+                                <td class="col-md-1">{{item.condition}}</td>
+                                <td>
+                                    <button type="button" ng-if="item.subItems" ng-click="$ctrl.subItems(item)" class="btn btn-sm btn-primary">View</button>
+                                </td>
+                                <td>
+                                    <button type="button" ng-click="$ctrl.updateItem(item)" class="btn btn-sm btn-primary">Update</button>
+                                </td>
+                            </tr>
+                            <tr ng-show="$ctrl.noItemMessage">
+                                <td class="col-md-3"></td>
+                                <td class="col-md-2"></td>
+                                <td style="font-size: 15px;" class="col-md-4"><b>No Items to Display</b></td>
+                                <td class="col-md-1"></td>
+                                <td class="col-md-2"></td>
+                                <td class="col-md-1"></td>
+                                <td class="col-md-1"></td>
+                                <td class="col-md-1"></td>
+                                <td class="col-md-1"></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div style="text-align:center">
+                    <button type="button" ng-click="$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- \ profileComponent end / -->

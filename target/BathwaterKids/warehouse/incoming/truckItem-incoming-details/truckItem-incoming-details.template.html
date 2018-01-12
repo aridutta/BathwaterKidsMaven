@@ -1,0 +1,54 @@
+<div class="timeslotComponent">
+    <div class="container">
+        <br>
+        <div class="row">
+        <div class="loading" ng-show="$ctrl.loader">
+            Loading&#8230;
+        </div>
+            <div class="col-sm-3">
+                <datepicker date-format="MM.dd.yyyy" selector="form-control">
+                    <div class="input-group">
+                        <input ng-model="$ctrl.todayDate" class="form-control" placeholder="Choose a date" />
+                        <span class="input-group-addon" ng-click="$ctrl.selectedDate($ctrl.todayDate)" style="cursor: pointer">Go
+                        </span>
+                    </div>
+                </datepicker>
+            </div>
+            <div class="col-sm-2">
+                <a href="" ng-click="$ctrl.viewReceivedItems()" class="btn btn-sm btn-success">View Received Items</a>
+            </div>
+            <div class="col-sm-2">
+                <a href="" ng-click="$ctrl.viewStoredItems()" class="btn btn-sm btn-success">View Stored Items</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <table class="table table-condensed text-center">
+            <thead>
+                <tr>
+                    <th style="font-size: 15px;">Truck ID</th>
+                    <th style="font-size: 15px;">Truck License Plate</th>
+                    <th style="font-size: 15px;">Number of Items</th>
+                    <th style="font-size: 15px;">Driver Detail</th>
+                    <th style="font-size: 15px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-hide="$ctrl.message" ng-repeat="item in $ctrl.incomingItems" ng-click="$ctrl.selectRow($index)" ng-class="{'highlight': $index == $ctrl.selectedRow}">
+                    <td>{{item.truckId}}</td>
+                    <td>{{item.licensePlate}}</td>
+                    <td>{{item.totalItemsCount}}</td>
+                    <td><a ng-click="$ctrl.viewDriverDetail(item.driver)" class="btn btn-primary btn-sm">View</a></td>
+                    <td><a ng-click="$ctrl.viewItems(item)" class="btn btn-primary btn-sm">View Items</a></td>
+                </tr>
+                <tr ng-show="$ctrl.message">
+                    <td></td>
+                    <td></td>
+                    <td><b style="font-size: 15px;">No Truck and Item Details Found</b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

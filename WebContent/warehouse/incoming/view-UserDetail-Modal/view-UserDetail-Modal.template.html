@@ -1,0 +1,101 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+    <div class="container">
+        <div class="profileBg">
+            <h2>User Detail</h2>
+            <div class="inner-adjust">
+                <div class="row">
+                    <div class="col-sm-5">
+                    </div>
+                    <div class="col-sm-6">
+                        <span ng-if="$ctrl.noUserDetail">No User Detail to Display</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <table class="table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td class="gap" for="firstName">User ID</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.userID">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap" for="licenceId">First Name</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.firstName">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Last Name</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.lastName">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Phone Number</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.phoneNumber">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">City</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.address.city">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-6">
+                            <table class="table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td class="gap">Zip Code</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.zipCode">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Apartment</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" ng-model="$ctrl.userDetail.user.address.apartment" class="form-controls">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Street Address</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.address.streetAddress">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">State</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.address.state">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Special Instruction</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userDetail.user.address.specialInstructions">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div style="text-align:center">
+                    <button type="button" ng-click="$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- \ profileComponent end / -->

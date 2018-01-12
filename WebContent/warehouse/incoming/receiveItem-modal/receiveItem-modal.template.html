@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>RECEIVED ITEMS</h3>
+    </div>
+    <div class="panel-body">
+        <toast></toast>
+        <input type="text" class="form-control pull-right"  ng-model="$ctrl.searchItem" placeholder="Search">
+        <br>
+        <br><br>
+        <div style="height:400px;overflow:auto;">
+        <table class="table text-center">
+            <tr>
+                <th class="col-md-1">Images</th>
+                <th style="font-size: 13px;">Stored ItemID</th>
+                <th style="font-size: 13px;">Storage ID</th>
+                <th style="font-size: 13px;">Item Name</th>
+                <th style="font-size: 13px;">Item Code</th>
+                <th style="font-size: 13px;">CategoryID</th>
+                <th style="font-size: 13px;">Location</th>
+                <th style="font-size: 13px;">Credit</th>
+                <th style="font-size: 13px;">More Details</th>
+                <th style="font-size: 13px;">Action</th>
+            </tr>
+            <tr ng-show="!$ctrl.message" ng-repeat="item in $ctrl.items | filter: $ctrl.searchItem">
+                <td class="text-center">
+                    <a href="" ng-click="$ctrl.openLightboxModal(item.imageURLs)">
+                        <img ng-src="{{item.imageURLs[0]}}" class="img-thumbnail">
+                    </a>
+                </td>
+                <td class="col-md-3">{{item.storedItemId}}</td>
+                <td class="col-md-2">{{item.storageID}}</td>
+                <td class="col-md-1">{{item.itemName}}</td>
+                <td class="col-md-1">{{item.itemCode[0]}}</td>
+                <td class="col-md-1">{{item.categoryID}}</td>
+                <td class="col-md-2">{{item.location}}</td>
+                <td class="col-md-1">{{item.credits}}</td>
+                <td>
+                    <button type="button"  ng-click="$ctrl.moreDetails(item)" class="btn btn-sm btn-primary">View</button>
+                </td>
+                <td>
+                    <button type="button" ng-click="$ctrl.updateLocationCredit(item)" class="btn btn-sm btn-primary">Update</button>
+                </td>
+            </tr>
+            <tr ng-show="$ctrl.message">
+                <td class="col-md-1"></td>
+                <td class="col-md-3"></td>
+                <td class="col-md-1"></td>
+                <td class="col-md-3" style="font-size: 15px;"><b>No Items to Display</b></td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1"></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;margin-bottom: 1cm;">
+    <button type="button" ng-click="$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="timeslotComponent">
+   <div class="container">
+      <br>
+      <a ng-click="$ctrl.addTimeslot()" class="btn btn-sm btn-success">Add Timeslot</a>
+      <a ng-click="$ctrl.showallTimeslot()" class="btn btn-sm btn-success">Show All</a>
+      <br><br>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Time/Date</th>
+               <th ng-repeat="timeslot in $ctrl.timeslots.dateMap.entry">
+                  {{timeslot.key}} <br/> {{timeslot.value}}
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr ng-repeat="ts in $ctrl.timeslots.timeslots">
+               <td class="text-center">{{ts.time}}</td>
+               <td class="text-center" ng-repeat="count in ts.counts">
+                  <span>Available: {{count.availabilityCount}} </span> 
+                  <hr>
+                  Booked: {{count.bookedCount}}
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>

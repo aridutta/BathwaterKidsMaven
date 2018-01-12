@@ -1,0 +1,47 @@
+
+<div class="inventoryDetails">
+
+     <div class="container">
+        <br>
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchInventory">
+        <br>
+        <div style="height:450px;overflow:auto;">
+        <table class="table table-bordered">
+                <tr>
+                    <th >Image</th>
+                    <th >Catagory ID</th>
+                    <th >Catagory Name</th>
+                    <th >Stored Item ID</th>
+                    <th class="col-md-1">Product Name</th>
+                    <th class="col-md-1">Status</th>
+                    <th >Value(credits)</th>
+                    <th class="col-md-1">Location</th>
+                    <th class="col-md-1">Date IN</th>
+                    <th class="col-md-4">Product Details</th>
+                    <th>Actions</th>
+                </tr>
+                    <tr class="text-center" ng-repeat="inventory in $ctrl.Inventory | filter:searchInventory" ng-click="$ctrl.selectRow($index)" ng-class="{'highlight': $index == $ctrl.selectedRow}">
+                            <td  class="text-center">
+                                <a href="" ng-click="$ctrl.openLightboxModal(inventory.imageURLs)">
+                                    <img ng-src="{{inventory.imageURLs[0]}}" class="img-thumbnail">
+                                 </a>
+                           </td>
+                           <td>{{inventory.categoryID}}</td>   
+                           <td>{{inventory.categoryName}}</td>
+                           <td>{{inventory.storedItemId}}</td>
+                           <td class="col-md-1">{{inventory.itemName}}</td>
+                           <td class="col-md-1" >{{inventory.status}}</td>
+                           <td>{{inventory.credits}}</td>
+                           <td class="col-md-1" >{{inventory.storagePoints}}</td>
+                           <td class="col-md-1" >{{inventory.storageTimestamp | date: 'dd/MM/yyyy'}}</td>
+                           <td class="col-md-4" >{{inventory.description}}</td>
+                           <td><a ng-click="$ctrl.addUpdateCredit(inventory)" class="btn btn-sm btn-success">
+                                  Add/Update Credit
+                                </a></td>
+                    </tr>
+                </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<!-- \ component4 end / -->

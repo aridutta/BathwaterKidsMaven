@@ -1,0 +1,128 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileBg">
+         <h2>Customer Profile</h2>
+         <div class="inner-adjust">
+            <h3>Image</h3>
+            <div class="image">
+              <img ng-src="{{$ctrl.userInventory.imageURL}}" alt="No Image to Display" style="width: 208px;height: 200px" />               
+            </div>
+            <div class="row">
+               <h3>General Info</h3>
+               <div class="row">
+                  <div class="col-sm-6">
+                     <table class="table-responsive">
+                        <tbody>
+                           <tr>
+                              <td class="gap" for="firstName">Stripe ID</td>
+                              <td class="gap2 gap3" ><input ng-disabled="$ctrl.isDisabled" type="text" name="firstName" class="form-controls" ng-model="$ctrl.userInventory.stripeID"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap" for="licenceId">Customer Name</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.firstName"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Email ID</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.emailAddress"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Phone Number</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.phoneNumber"></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="col-sm-6">
+                     <table class="table-responsive">
+                        <tbody>
+                           <tr>
+                              <td class="gap">User Type</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.userType"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Customer Since</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Credit</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.credits"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Referal Code</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.userInventory.referralCode"></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div class="row">
+               <h3>Address Details</h3>
+               <div>
+                  <table style="text-align:center;" class="table table-hover">
+                     <tr>
+                        <th style="font-size: 13px;" class="col-md-2">AddressID</th>
+                        <th style="font-size: 13px;" class="col-md-2">Apartment</th>
+                        <th style="font-size: 13px;" class="col-md-2">Street</th>
+                        <th style="font-size: 13px;" class="col-md-1">City</th>
+                        <th style="font-size: 13px;" class="col-md-1">State</th>
+                        <th style="font-size: 13px;" class="col-md-2">Zip Code</th>
+                        <th style="font-size: 13px;" class="col-md-4">Special Instructions</th>
+                     </tr>
+                     <tr ng-repeat="address in $ctrl.userInventory.address track by $index">
+                        <td>{{address.addressID}}</td>
+                        <td>{{address.apartment}}</td>
+                        <td>{{address.streetAddress}}</td>
+                        <td>{{address.city}}</td>
+                        <td>{{address.state}}</td>
+                        <td>{{address.zipCode}}</td>
+                        <td>{{address.specialInstructions}}</td>
+                     </tr>
+                     <tr ng-if="$ctrl.message">
+                        <td class="col-md-2"></td>
+                        <td class="col-md-3"></td>
+                        <td style="font-size: 15px;" class="col-md-2"><b>{{$ctrl.message}}</b></td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+            <br>
+            <div class="row">
+               <h3>Item Details</h3>
+               <div>
+                  <table class="table table-hover text-center">
+                     <tr>
+                        <th style="font-size: 13px;" class="col-md-1">CategoryID</th>
+                        <th style="font-size: 13px;" class="col-md-1">Name</th>
+                        <th style="font-size: 13px;" class="col-md-1">ItemID</th>
+                        <th style="font-size: 13px;" class="col-md-1">Credit</th>
+                        <th style="font-size: 13px;" class="col-md-2">Description</th>
+                     </tr>
+                     <tr ng-repeat="item in $ctrl.userInventory.storedItems track by $index">
+                        <td>{{item.categoryID}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.itemID}}</td>
+                        <td>{{item.credits}}</td>
+                        <td>{{item.description}}</td>
+                     </tr>
+                     <tr ng-if="$ctrl.itemMessage">
+                        <td class="col-md-2"></td>
+                        <td class="col-md-1"></td>
+                        <td style="font-size: 15px;" class="col-md-2"><b>{{$ctrl.itemMessage}}</b></td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+            <br><br>
+            <div style="text-align:center">
+               <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+            </div>
+         </div>
+         </form>
+      </div>
+   </div>
+</div>
+</div>
+<!-- \ profileComponent end / -->

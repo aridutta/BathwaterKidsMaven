@@ -1,0 +1,41 @@
+
+<div class="userRequestNotstartedModal">
+    <div class="table-responsive text-center">
+        
+        <div style="height:550px;overflow:auto;">
+            <table class="table table-hover">
+                <tr>
+                    <th style="font-size: 13px;" class="col-md-1">Date</th>
+                    <th style="font-size: 13px;" class="col-md-1">Time</th>
+                    <th style="font-size: 13px;" class="col-md-1">Request Type</th>
+                    <th style="font-size: 13px;" class="col-md-3 col-lg-2">User Name</th>
+                    <th style="font-size: 13px;" class="col-md-1">Zip Code</th>
+                    <th style="font-size: 13px;" class="col-md-3 col-lg-2">Assigned Driver</th>
+                    <th style="font-size: 13px;" class="col-md-3">Action</th>
+                </tr>
+                <tr ng-repeat="ts in $ctrl.notstarted track by $index">
+                    <td>{{::ts.date}}</td>
+                    <td>{{::ts.time}}</td>
+                    <td>{{::ts.type}}</td>
+                    <td>{{::ts.user.firstName}} {{::ts.user.lastName}}</td>
+                    <td>{{::ts.user.address.zipCode}}</td>
+                    <td>{{ts.driver.firstName}} {{ts.driver.lastName}}</td>
+                    <td>
+                        <form method="post" class="form-inline" role="form">
+                            <div class="form-group">
+                                <!-- <select class="form-control" ng-model="ts.selectedDriver">
+                                    <option value="">Select Driver</option>
+                                    <option ng-repeat="driver in $ctrl.drivers track by $index" value="{{::driver}}">{{driver.firstName}} {{driver.lastName}}</option>
+                                </select> -->
+                                <button class="btn btn-primary btn-sm" ng-click="$ctrl.assignDriver(ts.userRequestID, ts)">Assign Driver</button>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="" style="text-align:center;margin-bottom: 1cm;">
+        <input class="btn btn-lg btn-primary cancel" ng-click="$ctrl.cancel()" value="Cancel" type="button">
+    </div>
+</div>

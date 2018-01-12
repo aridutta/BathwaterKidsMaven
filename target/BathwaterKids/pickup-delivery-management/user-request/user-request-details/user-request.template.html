@@ -1,0 +1,177 @@
+<!-- / component4 \ -->
+<div class="component4">
+    <div class="container">
+        <div class="loading" ng-show="$ctrl.loader">
+            Loading&#8230;
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+
+                
+                <div class="col-sm-1">
+                    <input type="radio" name="status" ng-checked="$ctrl.showNotStarted" ng-click="$ctrl.notStarted()" value="notstarted" checked="checked">
+                </div>
+                <div class="col-sm-7">
+                    <label style="font-size: 18px;">Not Started</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+            <div class="col-sm-1">
+                    <input type="radio" name="status" ng-click="$ctrl.inprogress()" value="inprogress">
+                </div>
+                <div class="col-sm-7">
+                    <label style="font-size: 18px;">In Progress</label>
+                </div>
+                
+            </div>
+            <div class="col-sm-3">
+            <div class="col-sm-1">
+                    <input type="radio" name="status" ng-click="$ctrl.complete()" value="complete">
+                </div>
+                <div class="col-sm-7">
+                    <label style="font-size: 18px;">Complete</label>
+                </div>
+                
+            </div>
+            <div class="col-sm-3">
+            <div class="col-sm-1">
+                    <input type="radio" name="status" ng-click="$ctrl.cancel()" value="cancel">
+                </div>
+                <div class="col-sm-7">
+                    <label style="font-size: 18px;">Cancelled</label>
+                </div>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchText" name="">
+            <br>
+            <div class="table-responsive text-center" ng-show="$ctrl.showNotStarted">
+                <div style="height:350px;overflow:auto;">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="font-size: 13px;" class="col-md-2">User RequestID</th>
+                            <th style="font-size: 13px;" class="col-md-1">Date</th>
+                            <th style="font-size: 13px;" class="col-md-1">Time</th>
+                            <th style="font-size: 13px;" class="col-md-1">Request Type</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">User Name</th>
+                            <th style="font-size: 13px;" class="col-md-1">Zip Code</th>
+                            <th style="font-size: 13px;" class="col-md-1">User Detail</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">Assigned Driver</th>
+                            <th style="font-size: 13px;" class="col-md-3">Action</th>
+                        </tr>
+                        <tr ng-repeat="ts in $ctrl.notstartedRequest| filter: searchText">
+                            <td>{{::ts.userRequestID}}</td>
+                            <td>{{::ts.date}}</td>
+                            <td>{{::ts.time}}</td>
+                            <td>{{::ts.type}}</td>
+                            <td>{{::ts.user.firstName}} {{::ts.user.lastName}}</td>
+                            <td>{{::ts.user.address.zipCode}}</td>
+                            <td>
+                                <button type="button" ng-click="$ctrl.viewUserDetail(ts)" class="btn btn-sm btn-primary">View</button>
+                            </td>
+                            <td>{{ts.driver.firstName}} {{ts.driver.lastName}}</td>
+                            <td>
+                                <form method="post" class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <!-- <select class="form-control" ng-model="ts.selectedDriver">
+                                    <option value="">Select Driver</option>
+                                    <option ng-repeat="driver in $ctrl.drivers track by $index" value="{{::driver}}">{{driver.firstName}} {{driver.lastName}}</option>
+                                </select> -->
+                                        <button class="btn btn-primary btn-sm" ng-click="$ctrl.assignDriver(ts.userRequestID, ts)">Assign Driver</button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="table-responsive text-center" ng-show="$ctrl.showInProgress">
+                <div style="height:350px;overflow:auto;">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="font-size: 13px;" class="col-md-2">User RequestID</th>
+                            <th style="font-size: 13px;" class="col-md-1">Date</th>
+                            <th style="font-size: 13px;" class="col-md-1">Time</th>
+                            <th style="font-size: 13px;" class="col-md-1">Request Type</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">User Name</th>
+                            <th style="font-size: 13px;" class="col-md-1">Zip Code</th>
+                            <th style="font-size: 13px;" class="col-md-1">User Detail</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">Assigned Driver</th>
+                        </tr>
+                        <tr ng-repeat="ts in $ctrl.inProgressRequest | filter: searchText">
+                            <td>{{::ts.userRequestID}}</td>
+                            <td>{{::ts.date}}</td>
+                            <td>{{::ts.time}}</td>
+                            <td>{{::ts.type}}</td>
+                            <td>{{::ts.user.firstName}} {{::ts.user.lastName}}</td>
+                            <td>{{::ts.user.address.zipCode}}</td>
+                            <td>
+                                <button type="button" ng-click="$ctrl.viewUserDetail(ts)" class="btn btn-sm btn-primary">View</button>
+                            </td>
+                            <td>{{::ts.driver.firstName}} {{::ts.driver.lastName}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="table-responsive text-center" ng-show="$ctrl.showComplete">
+                <div style="height:350px;overflow:auto;">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="font-size: 13px;" class="col-md-2">User RequestID</th>
+                            <th style="font-size: 13px;" class="col-md-1">Date</th>
+                            <th style="font-size: 13px;" class="col-md-1">Time</th>
+                            <th style="font-size: 13px;" class="col-md-1">Request Type</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">User Name</th>
+                            <th style="font-size: 13px;" class="col-md-1">Zip Code</th>
+                            <th style="font-size: 13px;" class="col-md-1">User Detail</th>
+                            <th style="font-size: 13px;" class="col-md-3 col-lg-2">Assigned Driver</th>
+                            <!-- <th style="font-size: 13px;" class="col-md-3">Action</th> -->
+                        </tr>
+                        <tr ng-repeat="ts in $ctrl.completeRequest | filter: searchText">
+                            <td>{{::ts.userRequestID}}</td>
+                            <td>{{::ts.date}}</td>
+                            <td>{{::ts.time}}</td>
+                            <td>{{::ts.type}}</td>
+                            <td>{{::ts.user.firstName}} {{::ts.user.lastName}}</td>
+                            <td>{{::ts.user.address.zipCode}}</td>
+                            <td>
+                                <button type="button" ng-click="$ctrl.viewUserDetail(ts)" class="btn btn-sm btn-primary">View</button>
+                            </td>
+                            <td>{{::ts.driver.firstName}} {{::ts.driver.lastName}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive text-center" ng-show="$ctrl.showCancel">
+            <div style="height:350px;overflow:auto;">
+                <table class="table table-hover">
+                    <tr>
+                        <th style="font-size: 13px;" class="col-md-2">User RequestID</th>
+                        <th style="font-size: 13px;" class="col-md-1">Date</th>
+                        <th style="font-size: 13px;" class="col-md-1">Time</th>
+                        <th style="font-size: 13px;" class="col-md-1">Request Type</th>
+                        <th style="font-size: 13px;" class="col-md-3 col-lg-2">User Name</th>
+                        <th style="font-size: 13px;" class="col-md-1">Zip Code</th>
+                        <th style="font-size: 13px;" class="col-md-1">User Detail</th>
+                    </tr>
+                    <tr ng-repeat="ts in $ctrl.cancelRequest | filter: searchText">
+                        <td>{{::ts.userRequestID}}</td>
+                        <td>{{::ts.date}}</td>
+                        <td>{{::ts.time}}</td>
+                        <td>{{::ts.type}}</td>
+                        <td>{{::ts.user.firstName}} {{::ts.user.lastName}}</td>
+                        <td>{{::ts.user.address.zipCode}}</td>
+                        <td>
+                            <button type="button" ng-click="$ctrl.viewUserDetail(ts)" class="btn btn-sm btn-primary">View</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- \ component4 end /

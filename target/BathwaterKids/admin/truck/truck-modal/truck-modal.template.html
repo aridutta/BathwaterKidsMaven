@@ -1,0 +1,77 @@
+<!-- / profileComponent \  -->
+<div class="profileComponent">
+
+<div class="container">
+
+    <div class="profileBg">
+    
+        <h2>Truck Profile</h2>
+        
+        <div class="inner-adjust">
+                
+            <h3>Image</h3>  
+            
+            <div class="image">
+                
+                <img ng-src="{{$ctrl.imageUrl}}" alt="No Image Selected" style="width: 208px;height: 200px" />
+                 
+            </div>
+            <input style="margin-left:250px" ng-disabled={{$ctrl.isDisabled}} type="file" class="form-controls" ng-model="$ctrl.selectedImage" base-sixty-four-input accept="image/*">
+
+            <h3>General Info</h3>   
+            
+            <form action="#" method="post">
+            
+             <table class="table-responsive">
+                <tbody>
+                  <tr>
+                    <td class="gap" for="firstName">Truck Type*</td>
+                    <td class="gap2 gap3" ><input ng-disabled={{$ctrl.isDisabled}} type="text" name="firstName" class="form-controls" ng-model="$ctrl.truck.truckType"></td>
+                    <td class="gap gap4" for="lastName">License Plate Number*</td>
+                    <td class="gap2"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.licensePlate"></td>
+                  </tr>
+                  <tr>
+                    <td class="gap" for="licenceId">Dealer Name*</td>
+                    <td class="gap2 gap3"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.dealerName"></td>
+                    <td class="gap gap4">Dealer Street Address*</td>
+                    <td class="gap2"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.dealerStreetAddress"></td>
+                  </tr>
+                  <tr>
+                    <td class="gap">Dealer City*</td>
+                    <td class="gap2 gap3"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.dealerCity"></td>
+                    <td class="gap gap4">Dealer Zip*</td>
+                    <td class="gap2"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.dealerZip"></td>
+                  </tr>
+                  <tr>
+                    <td class="gap">Dealer State*</td>
+                    <td class="gap2 gap3"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.dealerState"></td>
+                    <td class="gap gap4">Lease Expiration Date*</td>
+                    <td class="gap2"><input ng-disabled={{$ctrl.isDisabled}} type="text" class="form-controls" ng-model="$ctrl.truck.leaseExpirationDate"></td>
+                  </tr>
+                </tbody>
+              </table>          
+              <div class="row">
+        <div class="col-sm-2">
+          
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="btn-main">
+
+          <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-sm btn-default">Cancel</button>
+          <button type="button" ng-disabled={{$ctrl.isDisabled}} ng-click = "$ctrl.save()" class="btn btn-sm btn-success">Save</button>
+
+        </div>
+          
+        </div>
+            
+            </form>
+            
+        </div>
+    
+    </div>  
+
+</div>
+    
+</div>
+<!-- \ profileComponent end /

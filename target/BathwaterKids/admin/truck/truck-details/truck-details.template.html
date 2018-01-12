@@ -1,0 +1,22 @@
+
+<!-- / component4 \ -->
+<div class="component4">
+	<div class="container">
+
+	<div class="component-bg">
+		
+	<ul>
+		<li><a href="" ng-click="$ctrl.addTruck()" class="drive">Add Trucks</a></li>
+		<li class="full" ng-repeat="truck in $ctrl.trucks" ng-click="$ctrl.showDetails(truck)">
+			<a href=""><img style="width: 209px; height: 207px" ng-src="{{truck.images && truck.images.length >0 ? truck.images[0].url : 'img/truck_image.jpg'}}"></a>
+			
+			<h2><a href="">{{truck.truckType || 'No Name'}}</a></h2>
+		</li>
+	</ul>
+
+	<div class="clear"></div>
+	      
+	</div>	
+	</div>
+</div>
+<!-- \ component4 end / -->

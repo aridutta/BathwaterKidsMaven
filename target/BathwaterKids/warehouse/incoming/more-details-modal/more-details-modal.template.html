@@ -1,0 +1,101 @@
+<!--/ profileComponent \ -->
+<div class="profileComponent">
+    <div class="container">
+        <div class="profileBg">
+            <h2>Owner and other Details</h2>
+            <div class="inner-adjust">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <table class="table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td class="gap" for="firstName">Owner ID</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" name="firstName" class="form-controls" ng-model="$ctrl.itemDetail.ownerID">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap" for="licenceId">Owner Name</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.itemDetail.ownerFirstName">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Owner Email ID</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.itemDetail.ownerEmail">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Credit</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.itemDetail.credit">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-6">
+                            <table class="table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td class="gap">Observations</td>
+                                        <td class="gap2 gap3">
+                                            <input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.itemDetail.observations">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gap">Description</td>
+                                        <td class="gap2 gap3">
+                                            <textarea ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.itemDetail.description"></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <h3>SubItem Details</h3>
+                    <div>
+                        <table class="table table-hover text-center">
+                            <tr>
+                                <th style="font-size: 13px;" class="col-md-1">Image</th>
+                                <th style="font-size: 13px;" class="col-md-1">Name</th>
+                                <th style="font-size: 13px;" class="col-md-1">Item Code</th>
+                                <th style="font-size: 13px;" class="col-md-1">Status</th>
+                                <th style="font-size: 13px;" class="col-md-2">Description</th>
+                            </tr>
+                            <tr ng-repeat="item in $ctrl.itemDetail.subItems track by $index">
+                                <td class="text-center">
+                                    <a href="" ng-click="$ctrl.openLightboxModal(item.imageURLs)">
+                                        <img ng-src="{{item.imageURLs[0]}}" class="img-thumbnail">
+                                    </a>
+                                </td>
+                                <td>{{item.itemName}}</td>
+                                <td>{{item.itemCode}}</td>
+                                <td>{{item.status}}</td>
+                                <td>{{item.description}}</td>
+                            </tr>
+                            <tr ng-if="$ctrl.itemMessage">
+                                <td class="col-md-2"></td>
+                                <td class="col-md-1"></td>
+                                <td style="font-size: 15px;" class="col-md-2"><b>{{$ctrl.itemMessage}}</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div style="text-align:center">
+                    <button type="button" ng-click="$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- \ profileComponent end /

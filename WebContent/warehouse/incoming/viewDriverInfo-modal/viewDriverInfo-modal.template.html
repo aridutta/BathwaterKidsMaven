@@ -1,0 +1,42 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileSm">
+         <h2>Driver Details</h2>
+         <div class="inner-adjust">
+            <div class="input-main">
+               <div class="row">
+                  <div class="col-sm-3">
+                     <label>Driver ID :</label>
+                  </div>
+                  <div class="col-sm-3">
+                     <input type="text" ng-model="$ctrl.driverInfo.driverID" class="form-controls" disabled>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-3">
+                     <label>First Name :</label>
+                  </div>
+                  <div class="col-sm-3">
+                     <input type="text" ng-model="$ctrl.driverInfo.firstName" class="form-controls" disabled>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-3">
+                     <label>Last Name :</label>
+                  </div>
+                  <div class="col-sm-3">
+                     <input type="text" ng-model="$ctrl.driverInfo.lastName" class="form-controls" disabled>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="btn-main">
+               <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-sm btn-default">Cancel</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- \ profileComponent end / -->

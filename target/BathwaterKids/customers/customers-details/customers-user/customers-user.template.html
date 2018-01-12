@@ -1,0 +1,61 @@
+
+
+<div class="userComponent">
+    <div class="container">
+        <br>
+        <input type="text" class="form-control pull-right"  ng-model="$ctrl.searchUser.emailAddress" placeholder="Search">
+        <br>
+        <br><br>
+        <div style="height:470px;overflow:auto;">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Stripe ID</th>
+                    <th class="col-md-1">Email ID</th>
+                    <th class="col-md-1">Credit</th>
+                    <th class="col-md-1">Status</th>
+                    <th class="col-md-2">Membership Type</th>
+                    <th class="col-md-2"></th>
+                    <th class="col-md-2">Action</th>
+                    <th class="col-md-4"></th>
+                </tr>
+            </thead>
+                <tr class="text-center" ng-click="$ctrl.selectRow($index)" ng-class="{'highlight': $index == $ctrl.selectedRow}" ng-repeat="user in $ctrl.listofUsers | filter: $ctrl.searchUser">
+                    <td>{{user.stripeID}}</td>
+                    <td>{{user.emailAddress}}</td>
+                    <td>{{user.credits}}</td>
+                    <td>
+                        <div ng-switch="user.active">
+                            <div ng-switch-when="1">
+                                <div class="text-success text-center">
+                                    <strong>Active</strong>
+                                    <!-- <a href="" class="editbtn deactivate-btn" type="button"><span class="text-danger glyphicon glyphicon-remove"></span></a> -->
+                                </div>
+
+                            </div>
+                            <div ng-switch-default>
+                                <div class="text-danger">
+                                    <strong>Inactive</strong>
+                                    <!-- <a href="" class="editbtn activate-btn" type="button"><span class="text-success glyphicon glyphicon-ok"></span></a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{user.membership.name}}</td>
+                    <td><a class="btn btn-primary btn-sm" ng-click="$ctrl.subscribeUser(user)">View Current Subscription</a></td>
+                     <td>
+                       <!--  <a class="btn btn-primary btn-sm">Add/Update Subscription</a> -->
+                        <a class="btn btn-primary btn-sm" ng-click="$ctrl.userRequest(user)">View UserRequest</a>
+                    </td>
+                    <td>
+                       <!--  <a class="btn btn-primary btn-sm">Add/Update Subscription</a> -->
+                        <a class="btn btn-primary btn-sm" ng-click="$ctrl.viewUser(user)">View Profile</a>
+                    </td>
+                </tr>
+            <tbody>
+           
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

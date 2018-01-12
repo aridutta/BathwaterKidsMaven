@@ -1,0 +1,23 @@
+
+<!-- / component4 \ -->
+<div class="component4">
+
+	<div class="container">
+
+			<div class="component-bg">
+				
+			<ul>
+				<li><a href="" ng-click="$ctrl.addDriver()" class="drive">Add Drivers</a></li>
+				<li class="full" ng-repeat="driver in $ctrl.drivers" ng-click="$ctrl.showDetails(driver)">
+					<a href=""><img style="width: 209px; height: 207px" src="img/list_img.jpg"></a>
+					
+					<h2><a href="">{{driver.firstName || 'No Name'}}</a></h2>
+				</li>
+			</ul>
+
+			<div class="clear"></div>
+			      
+			</div>	
+	</div>
+</div>
+<!-- \ component4 end / -->

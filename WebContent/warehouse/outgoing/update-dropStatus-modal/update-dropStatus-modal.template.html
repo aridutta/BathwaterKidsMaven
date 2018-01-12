@@ -1,0 +1,43 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileSm">
+         <h2>Update Status of Item</h2>
+         <toast></toast>
+         <div class="inner-adjust">
+            <div class="input-main">
+               <div class="row">
+                  <div class="col-sm-4">
+                     <label>UserRequestID :</label>
+                  </div>
+                  <div class="col-sm-5">
+                     <input type="text" style="width:251px;" ng-model="$ctrl.itemDetail.userRequestID" class="form-control" disabled>
+                  </div>
+               </div><br>
+                <div class="row">
+                  <div class="col-sm-4">
+                     <label>Stored ItemID :</label>
+                  </div>
+                  <div class="col-sm-5">
+                     <input type="text" style="width:251px;" ng-model="$ctrl.itemDetail.storedItemID" class="form-control" disabled>
+                  </div>
+               </div><br>
+               <div class="row">
+                  <div class="col-sm-4">
+                     <label>Status :</label>
+                  </div>
+                  <div class="col-sm-5">
+                     <input type="text" style="width:251px;" class="form-control" value="OUTBOUND" disabled>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="btn-main">
+               <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-sm btn-default">Cancel</button>
+               <button type="button" style="width:160px;" ng-click = "$ctrl.save($ctrl.itemDetail.storedItemID)" class="btn btn-sm btn-success">Move to Outbound</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

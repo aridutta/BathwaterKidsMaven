@@ -1,0 +1,45 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Sub Item Details</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="item in $ctrl.subItems">
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
+                    <div uib-carousel active="active" interval="5000">
+                        <div uib-slide ng-repeat="slide in $ctrl.imageURLs" index="$index" ng-class="{active : $first}">
+                            <img ng-src="{{slide}}" style="margin:auto;height: 160px;width:150px;">
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="card">
+                                <div>
+                                    <div class="card-block">
+                                        <h5><a>Item Code:&nbsp;{{item.itemCode}}</a></h5>
+                                        <h5><a>Item Name:&nbsp;{{item.itemName}}</a></h5>
+                                        <h5><a>Item Status:&nbsp;{{item.status}}</a></h5>
+                                        <h5><a>Description:&nbsp;{{item.description}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;margin-bottom: 1cm;">
+    <button type="button" ng-click="$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+</div>

@@ -1,0 +1,31 @@
+
+/* responsive Document */
+@media only screen and (min-width:768px) and (max-width:1170px) { 
+.component-bg li ,.component-bg li.full{ min-height: 209px; }
+.component-bg .drive { margin-top: 88px; }
+
+}
+
+@media only screen and (min-width:768px) and (max-width:979px) { 
+
+.component-bg li ,.component-bg li.full{ min-height: 200px; width: 24.2%; }
+.component-bg .drive { margin-top: 88px; }
+.component-bg li:nth-child(5n) { margin-right: 1%; }
+.component-bg li:nth-child(4n) { margin-right: 0; }
+
+}
+
+@media only screen and (max-width:767px) {
+	
+.component-bg li ,.component-bg li.full{ margin-bottom: 15px; min-height: 200px; width: 100%; }
+.component-bg .drive { margin-top: 88px; }
+.component2 ul { margin-bottom: 0px; }
+.pull-right { float: left!important; margin:0px; }
+.navbar-collapse { margin-top: 15px; }
+.component2 li { padding: 0 5px 0 0; margin-bottom: 10px; }
+}
+
+@media only screen and (min-width:280px) and (max-width:479px){
+
+
+}

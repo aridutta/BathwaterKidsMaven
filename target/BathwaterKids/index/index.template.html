@@ -1,0 +1,28 @@
+<div class="table-responsive nav-table" id="navTable">
+    <table class="table table-striped table-hover">
+        <tr>
+            <td>
+                <a href="" ng-click="$ctrl.open('admin')" class="navbar-btn text-center">
+                    <h3 class="glyphicon glyphicon-user"></h3><br/>ADMIN
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="$ctrl.open('junit')" class="navbar-btn text-center">
+                    <h3 class="glyphicon glyphicon-wrench"></h3><br/>JUNIT
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="" ng-click="$ctrl.open('pick')" ui-sref="deliveryLayout.userRequests" class="text-center">
+                    <h3 class="glyphicon glyphicon-road"></h3><br/>PICKUP/DELIVERY MANAGEMENT
+                </a>
+            </td>
+            <td>
+                <a href="" class="text-center">
+                    <h3 class="glyphicon glyphicon-home"></h3><br/>CONSUMER MANAGEMENT
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

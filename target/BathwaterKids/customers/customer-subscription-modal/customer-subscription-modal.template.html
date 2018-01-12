@@ -1,0 +1,62 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileBg">
+         <h2>Customer Subscription</h2>
+         <div class="inner-adjust">
+         <div class="row">
+               <div class="col-sm-5">
+                  
+               </div>
+               <div class="col-sm-6">
+                  <span ng-if="$ctrl.message">{{$ctrl.message}}</span>
+               </div>
+         </div>
+         
+            <div class="row">
+               <div class="col-sm-3">
+                  
+               </div>
+               <div class="col-sm-6">
+                  <form>
+                     <table class="table-responsive">
+                        <tbody>
+                           <tr>
+                              <td class="gap" for="firstName">Stripe Subscription ID</td>
+                              <td class="gap2 gap3" ><input ng-disabled="$ctrl.isDisabled" type="text" name="firstName" class="form-controls" ng-model="$ctrl.customer.membership.stripeSubscriptionID"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap" for="licenceId">Name</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.customer.membership.name"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Points</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.customer.membership.points"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Price</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.customer.membership.price"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Interval</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.customer.membership.interval"></td>
+                           </tr>
+                           <tr>
+                              <td class="gap">Description</td>
+                              <td class="gap2 gap3"><input ng-disabled="$ctrl.isDisabled" type="text" class="form-controls" ng-model="$ctrl.customer.membership.description"></td>
+                           </tr>
+                           
+                        </tbody>
+                     </table>
+               </div>
+           </div><br><br>
+            <div style="text-align:center">
+            <button type="button" ng-click = "$ctrl.cancel()" class="btn btn-lg btn-default">Cancel</button>
+            </div>
+         </div>
+         </form>
+      </div>
+   </div>
+</div>
+</div>
+<!-- \ profileComponent end / -->

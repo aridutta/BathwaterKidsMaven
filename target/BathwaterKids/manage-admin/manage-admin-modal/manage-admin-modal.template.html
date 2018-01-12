@@ -1,0 +1,92 @@
+<!-- / profileComponent \ -->
+<div class="profileComponent">
+   <div class="container">
+      <div class="profileBg">
+         <h2 ng-hide="$ctrl.isEdited">Add Admin</h2>
+         <h2 ng-show="$ctrl.isEdited">Edit Admin</h2>
+
+          <div class="inner-adjust">
+            <h3>Details</h3>
+            <div class="row">
+               <div class="col-sm-6">
+                  <div class="col-sm-2">
+                     <label>Email</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="text" style="width:270px;" class="form-control" ng-model="$ctrl.admin.email">
+                  </div>
+               </div>
+            </div>
+            <br>
+            <h3>Rights</h3>
+            <div class="row">
+               <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Is Super Admin</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.SuperAdmin" ng-checked="$ctrl.admin.SuperAdmin">
+                  </div>
+               </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Admin</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.Admin" ng-checked="$ctrl.admin.Admin">
+                  </div>
+               </div>
+            </div>
+             <div class="row">
+              
+               <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Pickup/Delivery</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.Pickup" ng-checked="$ctrl.admin.Pickup">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Customers</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.Customers" ng-checked="$ctrl.admin.Customers">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Inventory</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.Inventory" ng-checked="$ctrl.admin.Inventory">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="col-sm-3">
+                     <label>Warehouse</label>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" ng-model="$ctrl.admin.Warehouse" ng-checked="$ctrl.admin.Warehouse">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-2">
+               </div>
+               <div class="col-sm-2">
+               </div>
+               <div class="btn-main">
+                  <button type="button"  ng-click = "$ctrl.cancel()" class="btn btn-sm btn-default">Cancel</button>
+                  <button ng-hide="$ctrl.isEdited" type="button"  ng-click = "$ctrl.saveAdmin()" class="btn btn-sm btn-success">Save</button>
+                  <button ng-show="$ctrl.isEdited" type="button"  ng-click = "$ctrl.updateAdmin()" class="btn btn-sm btn-success">Update</button>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
